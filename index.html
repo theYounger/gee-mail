@@ -1,18 +1,214 @@
 <html>
-	<head>
+<head>
 		<script src="js/mail-generator.js"></script>
 		<link href="css/style.css" rel="stylesheet" media="screen">
+		<title>Mr. Destructoid's Mega Inbox</title>
     <script>
-      window.onload = function(){
-        // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
-        // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
-        
-      };
-    </script>
-	</head>
-	<body>
-		<div class="container" id="main">
-			Build Me!
-		</div>
-	</body>
+  window.onload = function() {
+
+    for (i = 0; i < geemails.length; i++) {
+      $('.sender').eq(i).text(geemails[i].sender);
+      $('.subject').eq(i).text(geemails[i].subject);
+      $('.body').eq(i).text(geemails[i].body);
+      $('.date').eq(i).text(geemails[i].date);
+    };
+
+    var freshCounter = 0;
+    var mrPopular = setInterval(uGotMail, 5000);
+
+    function uGotMail() {
+      var fresh = getNewMessage();
+      $('<div class = "mailline">').prependTo('.container');
+      $('<div class = "envelope">').appendTo('.mailline').eq(0);
+      $('<p class = "sender">').appendTo('.envelope').eq(0).text(fresh.sender);
+      $('<p class = "subject">').appendTo('.envelope').eq(0).text(fresh.subject);
+      $('<p class = "date">').appendTo('.envelope').eq(0).text(fresh.date);
+      $('<div class = "body">').appendTo('.mailline').eq(0).text(fresh.body);
+      freshCounter++;
+      /* this counter is . . . not ideal, i imagine . . . i can't imagine better though D: */
+      $('.inbox').text("Inbox (" + (freshCounter + geemails.length) + ")");
+    };
+
+    $('.mailline').click(function() {
+      $('.mailline').removeClass('current');
+      $('.body').hide();
+
+      $(this).addClass('current');
+      $(this).children('.body').show();
+    });
+  };
+
+</script>
+</head>
+
+
+<body>
+  <img class="bg" src="https://s3.amazonaws.com/pictureone/waimea635.jpg" />
+  <header>
+    <div class="inbox">
+    </div>
+    <h2>
+  Mr. Destructoid's Mega Inbox
+  </h2>
+    <h5>
+  a Dev-League project by Kyle (theYounger) Uyehara
+  </h5>
+  </header>
+  <div class="container">
+    <div class="mailline">
+      <div class="envelope">
+        <p class="sender"></p>
+        <p class="subject"></p>
+        <p class="date"></p>
+      </div>
+      <div class="body">
+      </div>
+    </div>
+
+    <div class="mailline">
+      <div class="envelope">
+        <p class="sender"></p>
+
+        <p class="subject"></p>
+
+
+        <p class="date"></p>
+
+      </div>
+      <div class="body">
+
+      </div>
+    </div>
+
+    <div class="mailline">
+      <div class="envelope">
+
+        <p class="sender"></p>
+
+
+        <p class="subject"></p>
+
+        <p class="date"></p>
+
+      </div>
+      <div class="body">
+
+      </div>
+    </div>
+
+    <div class="mailline">
+      <div class="envelope">
+
+        <p class="sender"></p>
+
+
+        <p class="subject"></p>
+
+
+        <p class="date"></p>
+
+      </div>
+      <div class="body">
+
+      </div>
+    </div>
+
+    <div class="mailline">
+      <div class="envelope">
+
+        <p class="sender"></p>
+
+
+        <p class="subject"></p>
+
+        <p class="date"></p>
+
+      </div>
+      <div class="body">
+
+      </div>
+    </div>
+
+    <div class="mailline">
+      <div class="envelope">
+
+        <p class="sender"></p>
+
+
+        <p class="subject"></p>
+
+
+        <p class="date"></p>
+
+      </div>
+      <div class="body">
+
+      </div>
+    </div>
+
+    <div class="mailline">
+      <div class="envelope">
+
+        <p class="sender"></p>
+
+
+        <p class="subject"></p>
+
+        <p class="date"></p>
+
+      </div>
+      <div class="body">
+
+      </div>
+    </div>
+
+    <div class="mailline">
+      <div class="envelope">
+
+        <p class="sender"></p>
+
+
+        <p class="subject"></p>
+
+        <p class="date"></p>
+
+      </div>
+      <div class="body">
+
+      </div>
+    </div>
+
+    <div class="mailline">
+      <div class="envelope">
+
+        <p class="sender"></p>
+
+
+        <p class="subject"></p>
+
+        <p class="date"></p>
+
+      </div>
+      <div class="body">
+
+      </div>
+    </div>
+
+    <div class="mailline">
+      <div class="envelope">
+
+        <p class="sender"></p>
+
+        <p class="subject"></p>
+
+
+        <p class="date"></p>
+
+      </div>
+      <div class="body">
+
+      </div>
+    </div>
+  </div>
+</body>
 </html>
